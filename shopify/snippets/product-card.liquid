@@ -1,0 +1,22 @@
+<div id="product-card" class="">
+  <div class="relative pb-[150%]">
+    <img
+      src="{{ product.image | image_url }}"
+      class="absolute top-0 left-0 h-full w-full"
+      alt="{{ product.image.alt | default: product.title }}"
+    >
+    <a href="{{ product.affiliate.link }}" class="absolute top-0 left-0 block h-full w-full"></a>
+  </div>
+
+  <div class="mt-[4px] sm:mt-[8px]">
+    <span class="font-futura m-0 p-0 text-[10px] leading-[140%] text-black sm:text-[14px]">{{ product.vendor }}</span>
+
+    <a href="{{ product.affiliate.link }}">
+      <h4 class="font-futura m-0 p-0 text-[10px] leading-[140%] text-black sm:text-[14px]">{{ product.title }}</h4>
+    </a>
+
+    <span class="font-futura m-0 p-0 text-[10px] leading-[140%] text-black sm:text-[14px]">
+      {{- product.price | money_without_trailing_zeros -}}
+    </span>
+  </div>
+</div>

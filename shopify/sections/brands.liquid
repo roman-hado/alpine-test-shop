@@ -1,0 +1,60 @@
+{% liquid
+  assign title  = section.settings.title
+  assign blocks = section.blocks
+%}
+
+<style>
+  #brands-section .brands-list li {
+    transition-duration: 0.3s;
+  }
+  #brands-section .brands-list li:hover img {
+    transform: scale(1.06);
+  }
+</style>
+
+<section id="brands-section" class="container mt-[40px]">
+  <h1 class="text-center uppercase text-[28px] md-1:text-[38px] font-bold tracking-[3_6px]">{{ section.settings.title }}</h1>
+  <ul class="brands-list flex mt-[16px] md-1:text-[38px] md-1:mt-[30px] w-full flex-wrap gap-[4px] justify-center max-w-[1440px] mx-auto md-1:gap-[7px]">
+    {% for block in blocks %}
+      {% assign block_image = block.settings.block_image %}
+
+      <li class="border border-solid divide-gray-additional grow flex items-center justify-center w-[170px] h-[73px] grow md-1:w-[440px] md-1:h-[140px]">
+        <a href="#">
+          <img src="{{ block_image | img_url: 'master' }}" class="h-[40px] w-[130px] md-1:h-[62px] md-1:w-[220px] duration-300" alt="{{ block_image.alt | default: block_title }}">
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+{% schema %}
+{
+  "name": "Brands Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brands Section",
+      "category": "Homepage"
+    }
+  ]
+}
+{% endschema %}

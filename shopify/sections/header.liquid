@@ -1,0 +1,100 @@
+{% liquid
+  assign logo = section.settings.logo
+  assign small_logo = section.settings.small_logo
+  assign header_menu = section.settings.header_menu
+  assign bg_mob_menu = section.settings.bg_mob_menu
+%}
+
+{% style %}
+  #header svg {
+    width: 100%;
+    height: 100%;
+  }
+{% endstyle %}
+
+<div
+  id="header"
+  @scroll.window="$store.header.scrolled = window.pageYOffset > 1"
+  class="bg-white pt-5 pb-3 lg-1:py-11"
+  :class="{ 'py-3' : $store.header.scrolled }"
+>
+  <div class="pt-15 mx-auto  max-w-[1380px] px-4">
+    <div
+      class="flex items-center justify-between"
+    >
+      {% if logo != blank %}
+        <a href="/" class="z-40">
+          <div
+            class="h-[46px] max-w-[205px] lg-1:max-w-[296px] lg-1:h-[66px]"
+            :class="{ 'hidden' : $store.header.scrolled }"
+          >
+            {{ logo }}
+          </div>
+          <div
+            class="hidden max-w-161px] h-[23px]"
+            :class="{ '!block' : $store.header.scrolled }"
+          >
+            {{ small_logo }}
+          </div>
+        </a>
+      {% endif %}
+      <div
+        class="fixed top-0 left-0 h-full w-full px-4 flex flex-col justify-center"
+        style="background-color: {{ bg_mob_menu }};"
+      >
+        {% if header_menu.links != blank %}
+          <nav>
+            <ul class="">
+              {% for link in header_menu.links %}
+                <li class="text-[40px] leading-[53px] font-medium mb-2 last:mb-0">
+                  {{ link.title | link_to: link.url }}
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+      </div>
+      <button class="text-sm font-medium md-1:hidden">{{ 'header.menu_text' | t }}</button>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "tag": "header",
+  "class": "sticky top-0 z-50 border-b",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.header.settings.paragraph"
+    },
+    {
+      "type": "link_list",
+      "id": "header_menu",
+      "label": "Header menu"
+    },
+    {
+      "type": "textarea",
+      "id": "logo",
+      "label": "Logo SVG"
+    },
+    {
+      "type": "textarea",
+      "id": "small_logo",
+      "label": "Small logo SVG",
+      "info": "Enable on scroll"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_mob_menu",
+      "label": "Background color for mobile menu",
+      "default": "#ABAC91"
+    }
+  ]
+}
+{% endschema %}
