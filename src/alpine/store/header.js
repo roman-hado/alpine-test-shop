@@ -7,6 +7,7 @@ export const header = {
 
     toggle(){
         this.visible = !this.visible;
+        console.log('s');
     },
 
     show(){
