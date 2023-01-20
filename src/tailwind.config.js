@@ -54,7 +54,7 @@ module.exports = {
     },
     important: true,
     fontFamily: {
-      'futura': ['Futura', 'sans-serif',],
+      'Harmonia Sans Pro Cyr': ['Harmonia Sans Pro Cyr', 'sans-serif',],
     }
   },
   plugins: [

@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"header\": function() { return /* binding */ header; }\n/* harmony export */ });\nvar header = {\n  visible: false,\n  scrolled: false,\n  scrollTop: false,\n  scroll: 0,\n  lastScroll: 0,\n  toggle: function toggle() {\n    this.visible = !this.visible;\n    console.log('s');\n  },\n  show: function show() {\n    this.visible = true;\n    document.body.classList.add('overflow-hidden');\n  },\n  hide: function hide() {\n    this.visible = false;\n    document.body.classList.remove('overflow-hidden');\n  },\n  checkClickToMenu: function checkClickToMenu(_ref) {\n    var target = _ref.target;\n\n    if (target.classList.contains('header-popup-menu')) {\n      this.visible = false;\n      document.body.classList.remove('overflow-hidden');\n    }\n  }\n};\n\n//# sourceURL=webpack://shopify-theme-lab/./src/alpine/store/header.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"header\": function() { return /* binding */ header; }\n/* harmony export */ });\nvar header = {\n  showSomething: function showSomething() {\n    console.log('roman');\n  }\n};\n\n//# sourceURL=webpack://shopify-theme-lab/./src/alpine/store/header.js?");
 
 /***/ }),
 

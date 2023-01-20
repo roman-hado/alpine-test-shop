@@ -336,7 +336,16 @@ video {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -344,6 +353,24 @@ video {
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
 }
 ::-webkit-backdrop {
   --tw-border-spacing-x: 0;
@@ -355,7 +382,16 @@ video {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -363,6 +399,24 @@ video {
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
 }
 ::backdrop {
   --tw-border-spacing-x: 0;
@@ -374,7 +428,16 @@ video {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -382,6 +445,24 @@ video {
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
 }
 .container {
   width: 100%;
@@ -443,21 +524,11 @@ video {
   }
 }
 /* @import "my-file"; */
-.visible {
-  visibility: visible;
-}
-.fixed {
-  position: fixed;
-}
 .absolute {
   position: absolute;
 }
 .relative {
   position: relative;
-}
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
 }
 .top-0 {
   top: 0px;
@@ -465,11 +536,8 @@ video {
 .left-0 {
   left: 0px;
 }
-.z-40 {
-  z-index: 40;
-}
-.z-50 {
-  z-index: 50;
+.z-10 {
+  z-index: 10;
 }
 .m-0 {
   margin: 0px;
@@ -488,26 +556,17 @@ video {
 .mt-\[16px\] {
   margin-top: 16px;
 }
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
 .mt-\[4px\] {
   margin-top: 4px;
 }
 .block {
   display: block;
 }
-.\!block {
-  display: block !important;
-}
 .flex {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: flex;
-}
-.hidden {
-  display: none;
 }
 .h-\[8px\] {
   height: 8px;
@@ -517,12 +576,6 @@ video {
 }
 .h-\[40px\] {
   height: 40px;
-}
-.h-\[46px\] {
-  height: 46px;
-}
-.h-\[23px\] {
-  height: 23px;
 }
 .h-full {
   height: 100%;
@@ -542,12 +595,6 @@ video {
 .max-w-\[1440px\] {
   max-width: 1440px;
 }
-.max-w-\[1380px\] {
-  max-width: 1380px;
-}
-.max-w-\[205px\] {
-  max-width: 205px;
-}
 .grow {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -557,14 +604,6 @@ video {
 .transform {
   -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.flex-col {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-     -moz-box-orient: vertical;
-     -moz-box-direction: normal;
-          flex-direction: column;
 }
 .flex-wrap {
   -webkit-flex-wrap: wrap;
@@ -582,26 +621,14 @@ video {
      -moz-box-pack: center;
           justify-content: center;
 }
-.justify-between {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-     -moz-box-pack: justify;
-          justify-content: space-between;
-}
 .gap-\[4px\] {
   gap: 4px;
-}
-.overflow-hidden {
-  overflow: hidden;
 }
 .rounded-\[100\%\] {
   border-radius: 100%;
 }
 .border {
   border-width: 1px;
-}
-.border-b {
-  border-bottom-width: 1px;
 }
 .border-solid {
   border-style: solid;
@@ -618,26 +645,11 @@ video {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(22 25 37 / var(--tw-bg-opacity)) !important;
 }
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+.p-2 {
+  padding: 0.5rem;
 }
 .p-0 {
   padding: 0px;
-}
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-.pt-5 {
-  padding-top: 1.25rem;
-}
-.pb-3 {
-  padding-bottom: 0.75rem;
 }
 .pb-\[150\%\] {
   padding-bottom: 150%;
@@ -645,18 +657,12 @@ video {
 .text-center {
   text-align: center;
 }
-.font-futura {
-  font-family: Futura, sans-serif;
-}
 .text-\[28px\] {
   font-size: 28px;
 }
-.text-\[40px\] {
-  font-size: 40px;
-}
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 .text-\[10px\] {
   font-size: 10px;
@@ -664,20 +670,18 @@ video {
 .font-bold {
   font-weight: 700;
 }
-.font-medium {
-  font-weight: 500;
-}
 .uppercase {
   text-transform: uppercase;
-}
-.leading-\[53px\] {
-  line-height: 53px;
 }
 .leading-\[140\%\] {
   line-height: 140%;
 }
 .tracking-\[3_6px\] {
-  letter-spacing: 3.6px;
+  letter-spacing: 3 6px;
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .text-black {
   --tw-text-opacity: 1;
@@ -727,10 +731,16 @@ video {
   max-height: 140%;
 }
 body {
-  font-family: Futura;
+  font-family: "Harmonia Sans Pro Cyr";
 }
-.last\:mb-0:last-child {
-  margin-bottom: 0px;
+.bg-black-primary {
+    background-color: #171717;
+}
+.p-2 {
+    padding: 0.5rem; /* 8px */
+}
+body {
+    font-family: "Harmonia Sans Pro Cyr", sans-serif;
 }
 @media (min-width: 680px) {
   .sm\:mt-\[8px\] {
@@ -743,9 +753,6 @@ body {
 @media (min-width: 767px) {
   .md-1\:mt-\[30px\] {
     margin-top: 30px;
-  }
-  .md-1\:hidden {
-    display: none;
   }
   .md-1\:h-\[140px\] {
     height: 140px;
@@ -766,18 +773,7 @@ body {
     font-size: 38px;
   }
 }
-@media (min-width: 1023px) {
-  .lg-1\:h-\[66px\] {
-    height: 66px;
-  }
-  .lg-1\:max-w-\[296px\] {
-    max-width: 296px;
-  }
-  .lg-1\:py-11 {
-    padding-top: 2.75rem;
-    padding-bottom: 2.75rem;
-  }
-}
+
 /*!************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/swiper/swiper.min.css ***!
   \************************************************************************************************************************************************************/
