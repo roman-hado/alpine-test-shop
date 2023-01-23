@@ -9,12 +9,175 @@
   assign pnone_number         = section.settings.phone_number
 %}
 
-<div id="header" @click="$store.header.showSomething()">
+{% style %}
+  .header {
+    position: sticky !important;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition-delay: 0.2s;
+    transition-duration: 0.7s;
+  }
+  #header .active-item {
+    position: relative;
+  }
+  #header .active-item:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #171717;
+    border-radius: 5px;
+  }
+  #header .header__submenu-item:hover .border-bottom {
+    display: block;
+  }
+  #header .header__submenu-item:hover .desktop-sub-menu {
+    opacity: 1;
+    visibility: visible;
+
+    @include for-tablet {
+      display: none;
+    }
+  }
+
+  #header .border-bottom:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #171717;
+    border-radius: 5px;
+  }
+{% endstyle %}
+
+<div
+        id="header"
+        class="!bg-white"
+        @scroll.window="$store.header.onScroll()"
+>
   {% if announcement %}
     <div class="relative z-10 bg-black-primary text-white text-xs text-center p-2">
       {{ announcement_title }}
     </div>
   {% endif %}
+
+  <div class="relative !bg-white z-10 border-b border-gray-additional">
+    <div class="flex justify-between items-center h-[73px] md-1:h-[55px] h-[52px] container">
+      <ul class="w-full md-1:w-1/3 flex items-center flex-wrap text-base leading-[55px] font-bold md-1:border-none border-solid border-b border-gray-additional tracking-[-0.6px]">
+        <li class="active-item mr-[17px]">
+          <a href="#">
+            Женщинам
+          </a>
+        </li>
+        <li class="mr-[17px]">
+          <a href="#">
+            Мужчинам
+          </a>
+        </li>
+      </ul>
+
+      <a class="w-1/3 flex items-center justify-center max-height-[26px] w-auto" href="#">
+        <img src="{{ "logo.static.png" | asset_url }}" alt="logo" class="w-full h-full">
+      </a>
+
+      <div class="w-1/3 flex items-center justify-end">
+        <div class="search flex w-[32px] items-center mr-1.5 relative h-[32px]">
+          <div class="search-logo cursor-pointer duration-300" @click="$store.header.searchPanelToggle()">
+            <img src="{{ 'search-icon.static.svg' | asset_url }}" class="search__img" alt="search goods open">
+          </div>
+          <input class="duration-300 opacity-0 invisible hidden w-auto search-input w-full cursor-pointer text-xs pl-2 border-none cursor-pointer" type="text" placeholder="Искать товары, бренды...">
+          <div class="search-close-icon hidden duration-300 opacity-0 invisible cursor-pointer absolute right-0" @click="$store.header.searchPanelToggle()">
+            <img src="{{ 'menu-close.static.svg' | asset_url }}" class="search__img" alt="search goods close">
+          </div>
+        </div>
+
+        <a href="#" class="flex">
+          <div>
+            <img src="{{ 'basket-icon.static.svg' | asset_url }}" class="" alt="basket">
+          </div>
+          <div>0</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative border-b border-gray-additional block">
+    <div class="flex justify-center items-center container">
+      <ul class="flex text-base font-bold text-black-primary tracking-[-1.4px] leading-[42px]">
+        <li class="header__submenu-item mr-6 overflow-hidden">
+          <a href="#">
+            Одежда
+          </a>
+          <div class="border-bottom relative hidden"></div>
+
+          <div class="desktop-sub-menu absolute left-0 w-full !bg-white-primary opacity-0 invisible mt-px z-10 flex justify-between duration-300 pt-[19px] pr-[164px] pl-[164px] pb-[30px] !bg-white">
+             <div class="flex justify-between flex-wrap">
+               <div class="mr-2 w-[216px]">
+                <div>Категории</div>
+
+                 <ul>
+                   <li>Вся одежда</li>
+                   <li>Белье и купальники</li>
+                   <li>Брюки и шорты</li>
+                   <li>Верхняя одежда</li>
+                   <li>Деним</li>
+                   <li>Костюмы</li>
+                   <li>Пиджаки</li>
+                   <li>Платья</li>
+                   <li>Свитшоты/худи</li>
+                   <li>Спортивные костюмы</li>
+                   <li>Топы/блузы/футболки</li>
+                   <li>Трикотаж</li>
+                   <li>Юбки</li>
+                 </ul>
+               </div>
+             </div>
+          </div>
+        </li>
+        <li class="header__submenu-item mr-6 overflow-hidden">
+          <a href="#">
+            Обувь
+          </a>
+          <div class="border-bottom relative hidden"></div>
+        </li>
+        <li class="header__submenu-item mr-6 overflow-hidden">
+          <a href="#">
+            Аксессуары
+          </a>
+          <div class="border-bottom relative hidden"></div>
+        </li>
+        <li class="header__submenu-item mr-6 overflow-hidden">
+          <a href="#">
+            Бренды
+          </a>
+          <div class="border-bottom relative hidden"></div>
+        </li>
+        <li class="header__submenu-item mr-6 overflow-hidden">
+          <a href="#">
+            Новые поступления
+          </a>
+          <div class="border-bottom relative hidden"></div>
+        </li>
+        <li class="header__submenu-item mr-6 overflow-hidden">
+          <a href="#">
+            Sale
+          </a>
+          <div class="border-bottom relative hidden"></div>
+        </li>
+        <li class="header__submenu-item overflow-hidden">
+          <a href="#">
+            Наши магазины
+          </a>
+          <div class="border-bottom relative hidden"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 {% schema %}

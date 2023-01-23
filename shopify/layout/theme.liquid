@@ -27,7 +27,7 @@
     {{ content_for_header }}
   </head>
 
-  <body x-data>
+  <body x-data class="relative">
     <div
       {% unless request.page_type == 'captcha' %}
         id="app"
