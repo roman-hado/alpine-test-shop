@@ -3,13 +3,46 @@
     "sections": {
       "header": {
         "type": "header",
+        "blocks": {
+          "68c09b61-bbaa-4a36-83b8-87ed13b43179": {
+            "type": "collection",
+            "settings": {
+              "collection": "обувь"
+            }
+          },
+          "874cce9a-488d-4ca4-84f3-59632f7f6008": {
+            "type": "collection",
+            "settings": {
+              "collection": "to-women"
+            }
+          },
+          "56751594-d1f7-4578-83f6-ba89e254204d": {
+            "type": "collection",
+            "settings": {
+              "collection": "клатчи-от-jil-sander"
+            }
+          },
+          "e16e7a56-92f2-4dd7-8cb8-4229385b4e45": {
+            "type": "collection",
+            "settings": {
+              "collection": "новые-колье-от-jil-sander"
+            }
+          }
+        },
+        "block_order": [
+          "68c09b61-bbaa-4a36-83b8-87ed13b43179",
+          "874cce9a-488d-4ca4-84f3-59632f7f6008",
+          "56751594-d1f7-4578-83f6-ba89e254204d",
+          "e16e7a56-92f2-4dd7-8cb8-4229385b4e45"
+        ],
         "settings": {
           "announcement": true,
           "announcement_title": "Sale 40% на женскую обувь | Бесплатная доставка",
-          "main_menu": "",
-          "sub_menu": "",
+          "main_menu": "main-menu",
+          "sub_menu": "sub-menu",
           "collection_link_text": "В каталог",
-          "phone_number": ""
+          "logo_image": "shopify:\/\/shop_images\/logo.png",
+          "phone_number": "+38 056 767 37 88"
         }
       },
       "footer": {
