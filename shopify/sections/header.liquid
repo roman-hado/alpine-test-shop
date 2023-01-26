@@ -71,23 +71,57 @@
           </li>
         {% endfor %}
       </ul>
-      <div class="header-menu-icon lg-1:hidden w-[30%] h-6">
+      <div
+              class="header-menu-icon lg-1:hidden w-[30%] h-6"
+              :class="{ 'hidden': $store.header.searchPanelOpened }"
+      >
         <span class="relative">
-          <img src="{{ 'header-opener.static.svg' | asset_url }}" @click="$store.header.toggleMobileMenu()" class="open-menu h-6 w-6 duration-300" alt="menu open">
-          <img src="{{ 'menu-close.static.svg' | asset_url }}" @click="$store.header.toggleMobileMenu()" class="opacity-0 invisible hidden close-menu h-6 w-6 duration-300" alt="menu close">
+          <img
+                  src="{{ 'header-opener.static.svg' | asset_url }}"
+                  @click="$store.header.toggleMobileMenu()"
+                  class="open-menu h-6 w-6 duration-300"
+                  :class="{ 'opacity-0 invisible hidden': $store.header.mobileMenuOpened }"
+                  alt="menu open"
+          >
+          <img
+                  src="{{ 'menu-close.static.svg' | asset_url }}"
+                  @click="$store.header.toggleMobileMenu()"
+                  class="opacity-0 invisible hidden close-menu h-6 w-6 duration-300"
+                  :class="{ 'opacity-0 invisible hidden': ! $store.header.mobileMenuOpened }"
+                  alt="menu close"
+          >
         </span>
       </div>
 
-      <a class="header-logo lg-1:w-1/3 w-[40%] flex items-center justify-center lg-1:h-[26px] h-[20px]" href="#">
+      <a
+              class="header-logo lg-1:block lg-1:w-1/3 w-[40%] flex items-center justify-center lg-1:h-[26px] h-[20px]"
+              :class="{ 'hidden': $store.header.searchPanelOpened }"
+              href="#"
+      >
         <img src="{{ logo | img_url: 'master' }}" alt="logo" class="w-full h-full object-contain">
       </a>
-      <div class="search-wrapper lg-1:w-1/3 w-[30%] flex items-center justify-end">
-        <div class="search flex w-[32px] items-center mr-1.5 relative h-[32px] !bg-white">
-          <div class="search-logo cursor-pointer duration-300" @click="$store.header.searchPanelToggle()">
+      <div
+              class="search-wrapper lg-1:w-1/3 flex items-center justify-end"
+              :class="$store.header.searchPanelOpened ? 'w-[100%]' : 'w-[30%]'"
+      >
+        <div
+                class="search flex items-center relative h-[32px] !bg-white"
+                :class="$store.header.searchPanelOpened ? 'w-[100%] mr-[13px] border border-gray-additional p-2 lg-1:w-[375px] lg-1:mr-[17px]' : 'mr-1.5 w-[32px]'"
+        >
+          <div class="search-logo cursor-pointer duration-300" @click="$store.header.searchPanelOpened = ! $store.header.searchPanelOpened">
             <img src="{{ 'search-icon.static.svg' | asset_url }}" class="search__img" alt="search goods open">
           </div>
-          <input class="outline-none duration-300 opacity-0 invisible hidden w-auto search-input w-full cursor-pointer text-xs pl-2 border-none cursor-pointer" type="text" placeholder="Искать товары, бренды...">
-          <div class="search-close-icon hidden duration-300 opacity-0 invisible cursor-pointer absolute right-0" @click="$store.header.searchPanelToggle()">
+          <input
+                  class="outline-none duration-300 opacity-0 invisible hidden search-input w-full cursor-pointer text-xs pl-2 border-none cursor-pointer"
+                  :class="{ '!block !opacity-100 !visible': $store.header.searchPanelOpened }"
+                  type="text"
+                  placeholder="Искать товары, бренды..."
+          >
+          <div
+                  class="search-close-icon hidden duration-300 opacity-0 invisible cursor-pointer absolute right-0"
+                  :class="{ '!block !visible !opacity-100 mr-1': $store.header.searchPanelOpened }"
+                  @click="$store.header.searchPanelOpened = ! $store.header.searchPanelOpened"
+          >
             <img src="{{ 'menu-close.static.svg' | asset_url }}" class="search__img" alt="search goods close">
           </div>
         </div>
@@ -101,7 +135,10 @@
       </div>
     </div>
   </div>
-  <div class="mobile-menu absolute flex flex-col justify-between lg-1:hidden w-full min-h-screen duration-300 !bg-white translate-y-[-full]">
+  <div
+          class="mobile-menu absolute flex-col justify-between lg-1:hidden w-full min-h-screen duration-300 !bg-white"
+          :class="$store.header.mobileMenuOpened ? 'flex' : 'hidden'"
+  >
     <div>
       <ul class="w-full flex items-center flex-wrap text-sm leading-[52px] font-bold lg-1:border-none border-solid border-b border-gray-additional">
         {% for link in main_menu.links %}
@@ -114,19 +151,44 @@
       <div class="container">
         <ul class="flex leading-8 mt-[8px] flex-col text-sm">
           {% for link in sub_menu.links %}
-            <li class="header__submenu-item w-full border-b border-gray-additional leading-[52px]">
+            <li x-data="dropDown" class="header__submenu-item w-full border-b border-gray-additional leading-[52px]">
               <div class="flex justify-between items-center w-full font-bold">
                 {{ link.title }}
                 {% if link.links[0].links.size > 1 %}
-                  <span class="header__submenu-item-sign">
-                    <img src="{{ 'submenu-item-open.svg' | asset_url }}" @click="$store.header.openSubMenu($event)" class="open" alt="nav opener">
-                    <img src="{{ 'submenu-item-close.svg' | asset_url }}" @click="$store.header.closeSubMenu($event)" class="close hidden" alt="nav opener">
+                  <span
+                          class="header__submenu-item-sign"
+                          x-ref="button"
+                          @click="toggle()"
+                          :aria-expanded="isOpen"
+                          :aria-controls="$id('dropdown-button')"
+                  >
+                    <img
+                            src="{{ 'submenu-item-open.static.svg' | asset_url }}"
+                            class="open"
+                            :class="isOpen ? 'hidden' : 'block'"
+                            alt="nav opener"
+                    >
+                    <img
+                            src="{{ 'submenu-item-close.static.svg' | asset_url }}"
+                            @click="$store.header.closeSubMenu($event)"
+                            :class="isOpen ? 'block' : 'hidden'"
+                            class="close"
+                            alt="nav opener"
+                    >
                   </span>
                 {% endif %}
               </div>
 
               {% if link.links[0].links.size > 1 %}
-                <ul class="submenu-list ml-2 mt-[-3px] pb-[10px] hidden">
+                <ul
+                        x-ref="panel"
+                        x-show="isOpen"
+                        x-collapse
+                        :id="$id('dropdown-button')"
+                        @click.outside="close($refs.button)"
+                        class="submenu-list ml-2 mt-[-3px] pb-[10px]"
+                >
+
                   {% for sub_link in link.links[0].links %}
                     <li class="leading-9 text-sm gray-primary">
                       {{ sub_link.title | link_to: "#" }}
